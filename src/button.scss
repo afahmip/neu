@@ -1,0 +1,39 @@
+@import "variables.scss";
+
+html {
+  background: $default-color;
+}
+
+.app {
+  padding: 20px;
+}
+
+button {
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  transition-duration: 0.15s;
+  background-color: $default-color;
+  padding: 12px 20px;
+  box-shadow:
+    5px 5px 10px 0 $dark-shadow,
+    -5px -5px 10px 0 $light-shadow;
+  border: 1px solid $default-color;
+  border-radius: 10px;
+  font-size: 1rem;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+    border-color: rgba(0, 0, 0, 0.02);
+  }
+
+  &:active {
+    box-shadow:
+      3px 3px 8px 0 $dark-shadow,
+      -3px -3px 8px 0 $light-shadow,
+      5px 5px 10px 0 $dark-shadow inset,
+      -5px -5px 10px 0 $light-shadow inset;
+    background-color: rgba(0, 0, 0, 0.02);
+  }
+}
