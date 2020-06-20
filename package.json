@@ -1,0 +1,22 @@
+{
+  "name": "neu",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/ahmadfahmip/neu.git",
+  "author": "ahmadfahmip <ahmad.fahmi.pratama@gmail.com>",
+  "description": "CSS framework based on Neumorphism",
+  "scripts": {
+    "start": "yarn watch-sass",
+    "build": "yarn compile-sass && yarn prefix-sass && yarn compress-sass",
+    "watch-sass": "node-sass src/main.scss build/neu.temp.css --watch",
+    "compile-sass": "node-sass src/main.scss build/neu.css",
+    "prefix-sass": "postcss --use autoprefixer -b 'last 5 versions' build/neu.css -o build/neu.css",
+    "compress-sass": "node-sass build/neu.css build/neu.min.css --output-style compressed"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^9.8.1",
+    "node-sass": "^4.14.1",
+    "postcss-cli": "^7.1.1"
+  }
+}
