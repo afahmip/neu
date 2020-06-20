@@ -23,6 +23,7 @@
     font-size: 1rem;
     padding: 12px 20px;
     border-radius: 8px;
+    margin-bottom: 6px;
 
     &::placeholder {
       color: $text-color-disabled;
@@ -82,6 +83,68 @@
 
     &:focus {
       outline: none;
+    }
+  }
+}
+
+.neu-fieldset {
+  border: none;
+  padding: 0;
+
+  &__legend {
+    display: block;
+    width: 100%;
+    color: $text-color;
+    padding: 16px 0;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #dddddd;
+  }
+}
+
+.neu-form-label {
+  color: $label-color;
+  display: block;
+  font-weight: 500;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.neu-form-message {
+  color: #5e5e5e;
+  font-size: 12px;
+  margin: 0;
+
+  &--danger {
+    color: $danger-color;
+  }
+  &--success {
+    color: $success-color;
+  }
+  &--info {
+    color: $info-color;
+  }
+  &--warning {
+    color: $warning-color;
+  }
+}
+
+.neu-form-group {
+  margin-bottom: 16px;
+  .neu-input {
+    display: block;
+  }
+
+  &--inline {
+    .neu-form-label {
+      display: inline-block;
+      margin-right: 12px;
+    }
+    .neu-input {
+      display: inline-block;
+    }
+    .neu-form-message {
+      display: inline-block;
+      margin-left: 12px;
     }
   }
 }
