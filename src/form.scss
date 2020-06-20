@@ -1,0 +1,39 @@
+@import "variables.scss";
+
+.neu-input {
+  &[type="url"],
+  &[type="tel"],
+  &[type="text"],
+  &[type="date"],
+  &[type="time"],
+  &[type="week"],
+  &[type="month"],
+  &[type="email"],
+  &[type="color"],
+  &[type="number"],
+  &[type="search"],
+  &[type="password"],
+  &[type="datetime-local"] {
+    color: $text-color;
+    background: $default-color;
+    border: 0;
+    box-shadow:
+      5px 5px 10px 0 $dark-shadow inset,
+      -5px -5px 10px 0 $light-shadow inset;
+    font-size: 1rem;
+    padding: 12px 20px;
+    border-radius: 8px;
+
+    &::placeholder {
+      color: $text-color-disabled;
+    }
+
+    &[disabled] {
+      cursor: not-allowed;
+      color: $text-color-disabled;
+      background-color: $bg-disabled;
+      box-shadow:
+        5px 5px 10px 0 $dark-shadow inset;
+    }
+  }
+}
