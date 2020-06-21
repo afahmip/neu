@@ -1,6 +1,9 @@
 $default-color: #F0F0F3;
+$default-color-hovered: #e8e8ec;
+$border-color: #EAEAED;
+$border-color-hovered: #F0F0F3;
 $light-shadow: white;
-$dark-shadow: rgba(174, 174, 192, 0.5);
+$dark-shadow: #9e9ead80;
 
 $text-color: #474747;
 $label-color: #707070;
@@ -8,5 +11,5 @@ $text-color-disabled: #bdbdbd;
 $danger-color: #f14668;
 $info-color: #2693DA;
 $success-color: #12AF49;
-$warning-color: rgb(228, 177, 9);
+$warning-color: #e4b109;
 $bg-disabled: #e6e6e6;

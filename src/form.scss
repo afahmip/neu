@@ -14,12 +14,13 @@
   &[type="search"],
   &[type="password"],
   &[type="datetime-local"] {
+    outline: none;
     color: $text-color;
     background: $default-color;
     border: 0;
     box-shadow:
-      5px 5px 10px 0 $dark-shadow inset,
-      -5px -5px 10px 0 $light-shadow inset;
+      3px 3px 6px 0 $dark-shadow inset,
+      -4px -4px 6px 0 $light-shadow inset;
     font-size: 1rem;
     padding: 12px 20px;
     border-radius: 8px;
@@ -34,8 +35,16 @@
       color: $text-color-disabled;
       background-color: $bg-disabled;
       box-shadow:
-        5px 5px 10px 0 $dark-shadow inset;
+        3px 3px 6px 0 $dark-shadow inset,
+        -4px -4px 6px 0 #ffffff5e inset;
     }
+  }
+
+  &[type="color"],
+  &[type="time"]::-webkit-calendar-picker-indicator,
+  &[type="date"]::-webkit-calendar-picker-indicator,
+  &[type="datetime-local"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
   }
 
   &[type="range"] {
@@ -50,16 +59,33 @@
         4px 4px 6px 0 $dark-shadow,
         -4px -4px 6px 0 $light-shadow;
       background-color: $default-color;
-      border: 3px solid transparent;
+      border: 1px solid transparent;
       border-radius: 100px;
       margin-top: -7px;
+      transition-duration: 0.15s;
+    }
+    @mixin slider-thumb-pressed {
+      height: 24px;
+      width: 24px;
+      box-shadow:
+        2px 2px 4px 0 $dark-shadow,
+        -2px -2px 4px 0 $light-shadow,
+        2px 2px 4px 0 $dark-shadow inset,
+        -2px -2px 4px 0 $light-shadow inset;
+      background-color: $default-color;
     }
     &::-webkit-slider-thumb {
       -webkit-appearance: none;
       @include slider-thumb;
     }
+    &::-webkit-slider-thumb:active {
+      @include slider-thumb-pressed;
+    }
     &::-moz-range-thumb {
       @include slider-thumb;
+    }
+    &::-moz-range-thumb:active {
+      @include slider-thumb-pressed;
     }
 
     @mixin slider-track {
@@ -95,9 +121,10 @@
     display: block;
     width: 100%;
     color: $text-color;
-    padding: 16px 0;
+    padding: 12px 0;
     margin-bottom: 16px;
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 2px solid #e6e6e6;
+    box-shadow: 0 4px 2px -2px $dark-shadow;
   }
 }
 
@@ -114,16 +141,20 @@
   font-size: 12px;
   margin: 0;
 
-  &--danger {
+  &-danger {
+    @extend .neu-form-message;
     color: $danger-color;
   }
-  &--success {
+  &-success {
+    @extend .neu-form-message;
     color: $success-color;
   }
-  &--info {
+  &-info {
+    @extend .neu-form-message;
     color: $info-color;
   }
-  &--warning {
+  &-warning {
+    @extend .neu-form-message;
     color: $warning-color;
   }
 }
@@ -134,7 +165,8 @@
     display: block;
   }
 
-  &--inline {
+  &-inline {
+    @extend .neu-form-group;
     .neu-form-label {
       display: inline-block;
       margin-right: 12px;

@@ -1,31 +1,33 @@
 @import "variables.scss";
 
+$btn-border: 1px solid $border-color;
 $btn-radius: 10px;
 $btn-default-shadow:
-  5px 5px 10px 0 $dark-shadow,
-  -5px -5px 10px 0 $light-shadow;
+  4px 4px 8px 0 $dark-shadow,
+  -4px -4px 8px 0 $light-shadow;
 $btn-active-shadow:
-  3px 3px 8px 0 $dark-shadow,
-  -3px -3px 8px 0 $light-shadow,
-  5px 5px 10px 0 $dark-shadow inset,
-  -5px -5px 10px 0 $light-shadow inset;
+  3px 3px 6px 0 $dark-shadow,
+  -3px -3px 6px 0 $light-shadow,
+  5px 5px 8px 0 $dark-shadow inset,
+  -5px -5px 8px 0 $light-shadow inset;
 
 .neu-btn {
   cursor: pointer;
   outline: none;
   display: flex;
   justify-content: center;
+  align-items: center;
   transition-duration: 0.15s;
   color: $text-color;
   background-color: $default-color;
   padding: 12px 20px;
   box-shadow: $btn-default-shadow;
-  border: 3px solid transparent;
+  border: $btn-border;
   border-radius: $btn-radius;
   font-size: 1rem;
 
   &:hover {
-    background-color: rgba(0, 0, 0, 0.02);
+    background-color: $default-color-hovered;
   }
 
   &:active {
@@ -43,8 +45,15 @@ $btn-active-shadow:
     }
   }
 
-  &--square {
+  &-square {
+    @extend .neu-btn;
     padding: 12px;
+  }
+
+  &-circle {
+    @extend .neu-btn;
+    padding: 12px;
+    border-radius: 50%;
   }
 }
 
@@ -61,12 +70,48 @@ $btn-active-shadow:
       box-shadow: $btn-active-shadow;
     }
     &:first-child {
+      border-right: none;
       border-top-left-radius: $btn-radius;
       border-bottom-left-radius: $btn-radius;
     }
+    &:nth-child(n+2) {
+      border-right: none;
+    }
     &:last-child {
+      border-right: $btn-border;
       border-top-right-radius: $btn-radius;
       border-bottom-right-radius: $btn-radius;
+    }
+  }
+}
+
+.neu-btn-group-vertical {
+  display: inline-flex;
+  border-radius: $btn-radius;
+  box-shadow: $btn-default-shadow;
+  flex-direction: column;
+  align-items: flex-start;
+
+  > .neu-btn {
+    width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+
+    &:active {
+      box-shadow: $btn-active-shadow;
+    }
+    &:first-child {
+      border-bottom: none;
+      border-top-left-radius: $btn-radius;
+      border-top-right-radius: $btn-radius;
+    }
+    &:nth-child(n+2) {
+      border-bottom: none;
+    }
+    &:last-child {
+      border-bottom: $btn-border;
+      border-bottom-right-radius: $btn-radius;
+      border-bottom-left-radius: $btn-radius;
     }
   }
 }
