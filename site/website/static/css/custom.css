@@ -4,8 +4,25 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
- 
+
 /* your custom css */
+
+html, body {
+  background: #F0F0F3;
+}
+
+.hljs {
+  background: #e6e6e9;
+}
+
+.element-renderer {
+  margin: 30px 0 30px 0;
+}
+
+.toc .toggleNav ul li.navListItemActive a,
+.onPageNav .toc-headings > li > a.active {
+  color: #2693DA;
+}
 
 @media only screen and (min-device-width: 360px) and (max-device-width: 736px) {
 }
